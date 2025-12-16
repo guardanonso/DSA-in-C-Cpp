@@ -4,13 +4,13 @@
 
 int main(void)
 {
-    List* lst = listInit();
+    List *lst = listInit();
 
-    pushBackLst(lst, 5);
-    pushBackLst(lst, 12);
-    pushBackLst(lst, 121);
-    pushBackLst(lst, -12);
-    pushBackLst(lst, 2);
+    pushBack(lst, 5);
+    pushBack(lst, 12);
+    pushBack(lst, 121);
+    pushBack(lst, -12);
+    pushBack(lst, 2);
 
     pushFront(lst, 44);
 
