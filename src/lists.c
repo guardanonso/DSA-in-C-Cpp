@@ -1,4 +1,4 @@
-#include "./../headersfiles/linkedLists.h"
+#include "./../include/linkedLists.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -9,17 +9,6 @@ node* makeNode(int v)
     newNode->val =  v;
     newNode->next = NULL;
     return newNode;
-}
-
-// given a node ptr "node" (!= NULL), the function returns a pointer to
-// the last node of the list
-node* getNodeTail(node* node)
-{
-    if(!node->next) return node;
-    else
-    {
-        return getNodeTail(node->next);
-    }
 }
 
 // returns a List ptr with head and tail set to NULL
@@ -60,7 +49,7 @@ void pushFront(List* lst, int v)
     }
 }
 
-// pushBack wrapper for user-interface
+
 void pushBack(List* lst, int v)
 {
     if(!(lst->head))
@@ -68,6 +57,28 @@ void pushBack(List* lst, int v)
         pushFront(lst, v);
         return;
     }
-    lst->tail->next = makeNode(v);
-    lst->tail = lst->tail->next;
+    else
+    {
+        lst->tail->next = makeNode(v);
+        lst->tail = lst->tail->next; 
+    }
+}
+
+// wrapper that calls freeNode() on lst->head
+void freeList(List* lst)
+{
+    freeNode(lst->head);
+}
+
+// free whole list pointed by a node, iteratively
+void freeNode(node* Node)
+{
+    node* curr = Node;
+    while(curr)
+    {
+        Node = Node->next;
+        free(curr);
+        curr = Node;	
+    }
+
 }

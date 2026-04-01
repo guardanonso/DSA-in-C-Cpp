@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "./headersfiles/trees.h"
+#include "./include/trees.h"
 
 int main (void)
 {
